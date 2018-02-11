@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: LGPL-2.1+
+# Let's build an image that is just good enough to build new mkosi images again
+
+[Distribution]
+Distribution=debian
+Release=stretch
+
+[Output]
+Format=raw_squashfs
+Bootable=no
+
+[Packages]
+Packages=
+  vim-tiny
+	iproute2
+  openssh-server
+	sudo
+	net-tools
+	procps
+	dnsutils
+  tar
+	squashfs-tools
+	unzip
+	python
+	iputils-ping

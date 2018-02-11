@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DEBIAN_FRONTEND=noninteractive apt-get install -y locales
+sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+echo "LANG=en_US.UTF-8" > /etc/default/locale
+
+sed -i "s/^%sudo.*$/%sudo\ ALL=(ALL:ALL)\ NOPASSWD:ALL/g" /etc/sudoers
+mkdir /root/starter

@@ -1,0 +1,45 @@
+---
+bridge:
+  name: nspawnd0
+  address: 10.10.12.1
+  network: 10.10.12.0
+  netPrefix: 26
+
+ipt:
+  chainName: NSPAWN
+
+path:
+  workingDirectory: "/home/spgrind/.aplspawn"
+  localStore: "/home/spgrind/.aplspawn/aplimages"
+  imageLowerLayer: "/home/spgrind/.aplspawn/lower"
+  imageUpperPath: "/home/spgrind/.aplspawn/upper"
+  imageWorkPath: "/home/spgrind/.aplspawn/work"
+
+image:
+  os: debian
+  release: stretch
+  repo: "http://sd-122375.dedibox.fr/mkosimages"
+  loopDevice: "/dev/loop6"
+
+cntVariables:
+  userName: test
+  userGroup: testg
+  userPassword: ""
+  rootPassword: ""
+  dnsAddress: 8.8.8.8
+  netPrefix: 26
+  defGateway: 10.10.12.1
+  sshPublicKeyPath: "./id_rsa.pub"
+
+cntCommon:
+  amount: 10
+  sshPrivateKeyPath: ./id_rsa
+  ipRange: ["10.10.12.10", "10.10.12.40"]
+  bindHostResolve: True
+  bindHost: starter/
+  variablesFile: starter/variables.sh
+  bindContainer: "/root/starter/"
+  startupScript: "/root/starter/startup.sh"
+  nameTmpl: aplspawn
+  homePath: "/var/lib/machines"
+  inventoryFile: ./inventory.txt

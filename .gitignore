@@ -4,4 +4,5 @@
 starter/variables.sh
 id_rsa*
 trash/
-*.rrd
+iptables*
+inventory.txt

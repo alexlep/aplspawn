@@ -6,3 +6,4 @@ id_rsa*
 trash/
 iptables*
 inventory.txt
+__pycache*

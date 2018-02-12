@@ -38,6 +38,12 @@ class Network(object):
         msg, ec = exec_command(cmd)
         return msg, ec, False
 
+    @checkCriticalEC
+    def iptablesBackup(self):
+        step = "Executing backup of current iptables configuration"
+        msg, ec = exec_command("sudo iptables-save >> iptables.backup")
+        return msg, ec, step
+
     def configureBridge(self):
         for cmd in self.brUpCmds:
             self.execute(cmd)
@@ -66,6 +72,7 @@ class Network(object):
 
     def netUp(self):
         self.configureBridge()
+        self.iptablesBackup()
         self.enableForwarding()
         self.configureIptForward()
         self.configureIptNat()

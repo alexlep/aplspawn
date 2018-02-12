@@ -1,0 +1,7 @@
+*.pyc
+*.sqlite
+*.log
+starter/variables.sh
+id_rsa*
+trash/
+*.rrd

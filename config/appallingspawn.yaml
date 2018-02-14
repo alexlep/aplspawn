@@ -18,7 +18,7 @@ path:
 image:
   os: debian
   release: stretch
-  repo: "http://sd-122375.dedibox.fr/mkosimages"
+  repo: "https://spgrind.me/mkosimages"
   loopDevice: "/dev/loop6"
 
 cntVariables:
